@@ -6,8 +6,10 @@ bot = telegram.Bot(Token)
 chat_id = "1806482236"
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods = ["POST"])
 def user():
+    data = request.get_json()
+    print(data)
     bot.send_message(chat_id,"hello world")
     return "HEllo"
 
