@@ -9,8 +9,7 @@ app = Flask(__name__)
 @app.route("/",methods = ["POST"])
 def user():
     data = request.get_json()
-    print(data)
-    bot.send_message(chat_id=data.message.chat.id,text = data.message.text)
+    bot.send_message(chat_id=data['message']['chat']['id'],text=data['message']['text'])
     return "HEllo"
 
 if __name__=="__main__":
